@@ -3,6 +3,7 @@ package com.auth0.jwt;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,7 +14,6 @@ import java.util.UUID;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import javax.naming.OperationNotSupportedException;
 
 import org.apache.commons.codec.binary.Base64;
 
@@ -231,7 +231,7 @@ public class JWTSigner {
         case RS384:
         case RS512:
         default:
-            throw new OperationNotSupportedException("Unsupported signing method");
+            throw new NoSuchAlgorithmException("Unsupported signing method");
         }
     }
 
